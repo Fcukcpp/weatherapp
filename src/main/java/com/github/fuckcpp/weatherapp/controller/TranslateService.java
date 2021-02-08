@@ -131,7 +131,6 @@ public class TranslateService
         String encoded = URLEncoder.encode(this.text, "UTF-8");
         String token = generateToken(this.text);
         url = Weather.WEATHER.translate_api_key(encoded)+token;
-        System.out.println(url);
         return  url;
     }
 

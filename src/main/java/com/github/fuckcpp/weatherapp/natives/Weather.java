@@ -48,40 +48,39 @@ public interface Weather extends Library
      */
     int  get_program_pid();
 
+    class  Config
+    {
 
+        public  static final String Osname =System.getProperty("os.name");
+        /**
+         * The constant Arch.
+         */
+        public  static final String  Arch =System.getProperty("os.arch");
+
+
+        /**
+         * Loadnative string.
+         *
+         * @return the string
+         */
+        public static String loadnative()
+        {
+            if (Osname.contains("Windows"))
+            { if (Arch.equals("amd64"))
+            { return  "libweather.dll"; }
+            }else  if (Osname.contains("Linux"))
+            { if (Arch.equals("amd64"))
+            { return  "libweather.so"; }
+            }
+            return  "";
+
+
+        }
+
+
+    }
 }
 
 /**
  * The type Config.
  */
-class  Config
-{
-
-    public  static final String Osname =System.getProperty("os.name");
-    /**
-     * The constant Arch.
-     */
-    public  static final String  Arch =System.getProperty("os.arch");
-
-
-    /**
-     * Loadnative string.
-     *
-     * @return the string
-     */
-    public static String loadnative()
-    {
-        if (Osname.contains("Windows"))
-        { if (Arch.equals("amd64"))
-        { return  "libweather.dll"; }
-        }else  if (Osname.contains("Linux"))
-        { if (Arch.equals("amd64"))
-        { return  "libweather.so"; }
-        }
-        return  "";
-
-
-    }
-
-
-}

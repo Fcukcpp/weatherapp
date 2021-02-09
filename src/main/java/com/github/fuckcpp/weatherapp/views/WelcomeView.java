@@ -248,7 +248,7 @@ public class WelcomeView<cityName> extends UI {
         footer.setWidth("100%");
         footer.setHeight("40px");
         Label description = new Label();
-        description.setValue("Weather App by Saad Aslam . Visit my Github Repo for complete code of this project.https://github.com/Fcukcpp/weatherapp ");
+        description.setValue("Weather App by Crying711. Visit my Github Repo for complete code of this project.https://github.com/Fcukcpp/weatherapp ");
         footer.addComponents(description);
         mainLayout.addComponents(footer);
     }

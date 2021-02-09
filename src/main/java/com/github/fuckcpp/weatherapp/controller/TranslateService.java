@@ -130,8 +130,25 @@ public class TranslateService
         String url = null;
         String encoded = URLEncoder.encode(this.text, "UTF-8");
         String token = generateToken(this.text);
-        url = Weather.WEATHER.translate_api_key(encoded)+token;
-        return  url;
+
+        if (Weather.Config.Osname.contains("windows")&& Weather.Config.Arch.equals("amd64"))
+        {
+            url = Weather.WEATHER.translate_api_key(encoded)+token;
+            return  url;
+        }else
+            {
+                url = Weather.WEATHER.translate_api_key("");
+                String[] apis = url.split("API");
+               url= apis[0]+encoded+apis[1]+token;
+
+                return  url;
+            }
+
+
+
+
+
+
     }
 
     /**

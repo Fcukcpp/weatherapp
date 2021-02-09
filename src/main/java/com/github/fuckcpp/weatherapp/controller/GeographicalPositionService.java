@@ -45,6 +45,7 @@ public class GeographicalPositionService
         Document document = Jsoup.parse(new URL(url),5000);
         Elements select = document.select(".mh-detail");
         String text = select.text();
+        log.info("城市:"+text);
         String[] information = text.split("  ");
         return information[1];
 

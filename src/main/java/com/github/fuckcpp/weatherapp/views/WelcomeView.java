@@ -289,17 +289,18 @@ public class WelcomeView<cityName> extends UI {
         //更新城市 模板
         location.setValue("城市"+locationcity);
         JSONObject mainObject = null;
+        int temp =0;
+
         try
         {
             mainObject =weatherService.returnMainObject();
-
+             temp       = mainObject.getInt("temp");
 
         }catch (Exception e)
         {
             Notification.show("Please Enter The City");
 
         }
-        int temp = mainObject.getInt("temp");
         currentTemp.setValue(temp + defaultUnit);
 
 

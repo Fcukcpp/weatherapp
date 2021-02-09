@@ -298,6 +298,7 @@ public class WelcomeView<cityName> extends UI {
 
         }catch (Exception e)
         {
+            log.error("没有这个城市");
             Notification.show("Please Enter The City");
 
         }
@@ -393,6 +394,7 @@ public class WelcomeView<cityName> extends UI {
 
         }catch (Exception e)
         {
+            log.error(e.getMessage(),"没有这个城市");
             return;
         }
 
@@ -407,7 +409,7 @@ public class WelcomeView<cityName> extends UI {
             JSONObject weatherObject = jsonArray.getJSONObject(i);
             iconCode = weatherObject.getString("icon");
             weatherDescriptionNew = weatherObject.getString("description");
-            System.out.println(iconCode);
+            log.info("天气代码:"+iconCode);
         }
         //Setting icon between city name and temp
         iconImg.setSource(new ExternalResource("http://openweathermap.org/img/wn/"+iconCode+"@2x.png"));
